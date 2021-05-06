@@ -26,7 +26,10 @@ def predict():
     output = {'results': int(result[0])}
 
     # return data
-    return jsonify(results=output)
+    if int(result[0]) == 0:
+           return jsonify(results="Motor In Good Condition")
+    elif int(result[0]) == 1:
+        return jsonify(results="Motor In Bad Condition")
 
 if __name__ == "__main__":
     app.run(debug=True)
